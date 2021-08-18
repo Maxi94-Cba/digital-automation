@@ -25,6 +25,5 @@ export class HeaderPage {
   }
   getUserBalance() {
     return cy.get('.val_type_user_balance');
-    ;
   }
 }
