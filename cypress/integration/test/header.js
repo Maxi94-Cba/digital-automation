@@ -16,9 +16,8 @@ describe("Test Suite - Header", function () {
       testData = data;
     });
     Header.goToSportium();
-
   });
-
+// Testing GitHub
   it("Login correctly", function () {
     Header.getIniciarSesion().should('be.visible').click();
     Header.getUsername().type(testData.user333).should('have.value', testData.user333);
