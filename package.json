@@ -1,0 +1,16 @@
+{
+  "name": "maximusautomationcypress",
+  "version": "1.0.0",
+  "description": "Maximus Automation Project with Cypress",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "keywords": [],
+  "author": "Maximiliano Alvarez",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "cypress": "^8.2.0"
+  }
+}
