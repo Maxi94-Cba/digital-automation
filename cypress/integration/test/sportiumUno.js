@@ -53,7 +53,7 @@ describe("Sportium UNO", function () {
     });
   });
 */
-  context("Transfers", function () {
+  context("Transfers - Online to Shops", function () {
     beforeEach(function () {
       Utilities.ignoreSiteErrors();
       Uno.goToSportiumUno();
@@ -65,14 +65,12 @@ describe("Sportium UNO", function () {
       //Header.getCookiesAccept().should('be.visible').click();
     });
 
-    it("Check 'Comprueba Ahora' button", function () {
-      Uno.btnCompruebaAhora().click();
-      cy.url().should("include", "/bet-history");
+    it("Check minimum ammount allowed", function () {
+
     });
 
-    it("Check 'Busca tu tienda' button", function () {
-      Uno.btnBuscaTuTienda().click();
-      cy.url().should("include", "tiendas");
+    it("Check maximum ammount allowed", function () {
+
     });
   });
 });

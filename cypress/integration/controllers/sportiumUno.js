@@ -1,14 +1,17 @@
 /// <reference types="cypress" />
+import { SportiumUnoPage } from "../pages/sportiumUno";
+const Uno = new SportiumUnoPage();
 
-export class SportiumUnoPage {
-  goToSportiumUno() {
-    return cy.visit("https://portal-admin.sportium.es/new-sportium-uno", { timeout: 20000 });
+export class SportiumUnoController {
+  switchMode(){
+    Uno.btnSwitch().click();
+  }
+  setAmmount(value){
+    Uno.inputAmmount().type(value);
   }
 
-  btnSwitch() {
-    //Switch button
-    return cy.get('#sp-uno-transfer-switch-img');
-  }
+
+  //
   titleFrom() {
     //Transferir desde -Default: ONLINE
     return cy.get('#sp-uno-transfer-title-from');
@@ -23,16 +26,10 @@ export class SportiumUnoPage {
   balanceTo() {
     return cy.get('#sp-uno-transfer-available-amount-to');
   }
-  inputAmmount() {
-    //Importe a transferir textbox
-    return cy.get('#sp-uno-transfer-amount');
-  }
+
   btnTransfer() {
     //Transferir button
     return cy.get('#button-transfer');
-  }
-  btnDepositar(){
-    return true;
   }
   sliderBall() {
     //Bolita del slider
@@ -51,22 +48,23 @@ export class SportiumUnoPage {
     return cy.get('output');
   }
 
-  btnCompruebaAhora() {
-    return cy.get('.check-bet-button > button', { timeout: 20000 });
+
+  clickCompruebaAhora(){
+    Uno.btnCompruebaAhora().click();
   }
-  btnBuscaTuTienda() {
-    return cy.get('.find-shop-button > button', { timeout: 20000 });
+  clickBuscaTuTienda(){
+    Uno.btnBuscaTuTienda().click();
   }
-  listQuestion1() {
-    return cy.get(':nth-child(1) > .faqs-question-title', { timeout: 10000 });
+  openQuestion1(){
+    Uno.listQuestion1().click();
   }
-  listQuestion2() {
-    return cy.get(':nth-child(2) > .faqs-question-title', { timeout: 10000 });
+  openQuestion2(){
+    Uno.listQuestion2().click();
   }
-  listQuestion3() {
-    return cy.get(':nth-child(3) > .faqs-question-title', { timeout: 10000 });
+  openQuestion3(){
+    Uno.listQuestion3().click();
   }
-  listQuestion4() {
-    return cy.get(':nth-child(4) > .faqs-question-title', { timeout: 10000 });
+  openQuestion4(){
+    Uno.listQuestion4().click();
   }
 }
