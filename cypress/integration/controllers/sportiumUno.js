@@ -3,23 +3,42 @@ import { SportiumUnoPage } from "../pages/sportiumUno";
 const Uno = new SportiumUnoPage();
 
 export class SportiumUnoController {
-  switchMode(){
+
+  switchTransferMode(){
     Uno.btnSwitch().click();
   }
+  deleteAmmount(){
+    cy.wait(500);
+    Uno.inputAmmount().type('5').clear();
+  }
   setAmmount(value){
-    Uno.inputAmmount().type(value);
+    Uno.inputAmmount().type(value).blur();
+  }
+  checkTransferMode(textFrom, textTo){
+    Uno.titleFrom().should('have.text', textFrom);
+    Uno.titleTo().should('have.text', textTo);
+  }
+  sliderValueShouldHave(text) {
+    //Importe actual (debajo de la bolita), valor identico a inputAmmount
+    Uno.sliderCurrentValue().should('have.text', text);
+  }
+  clickTransfer(){
+    Uno.btnTransfer().click();
+  }
+  cancelTransfer(){
+    Uno.btnTransferCancel().click();
+  }
+  confirmTransfer(){
+    Uno.btnTransferAccept().click();
+  }
+  checkTransfer(){
+    Uno.msgTransfer().should('have.text', 'Transferencia realizada correctamente');
+  }
+  checkErrorMsg(){
+    Uno.msgTransfer().should('have.text', 'Lo sentimos pero la transferencia no se ha podido realizar');
   }
 
-
-  //
-  titleFrom() {
-    //Transferir desde -Default: ONLINE
-    return cy.get('#sp-uno-transfer-title-from');
-  }
-  titleTo() {
-    //Transferir hacia -Default: TIENDAS
-    return cy.get('#sp-uno-transfer-title-to');
-  }
+  //  .invoke('text')  for input or textarea, .invoke('val')
   balanceFrom() {
     return cy.get('#sp-uno-transfer-available-amount-from');
   }
@@ -27,10 +46,6 @@ export class SportiumUnoController {
     return cy.get('#sp-uno-transfer-available-amount-to');
   }
 
-  btnTransfer() {
-    //Transferir button
-    return cy.get('#button-transfer');
-  }
   sliderBall() {
     //Bolita del slider
     return cy.get('.rangeslider__handle');
@@ -43,10 +58,7 @@ export class SportiumUnoController {
     //Importe maximo del slider
     return cy.get('#sp-uno-transfer-max-value');
   }
-  sliderCurrentValue() {
-    //Importe actual (debajo de la bolita), valor identico a inputAmmount
-    return cy.get('output');
-  }
+
 
 
   clickCompruebaAhora(){

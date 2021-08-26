@@ -7,14 +7,12 @@ export class SportiumUnoPage {
 
   btnSwitch() {
     //Switch button
-    return cy.get('#sp-uno-transfer-switch-img');
+    return cy.get('#sp-uno-transfer-switch-img', { timeout: 20000 });
   }
   titleFrom() {
-    //Transferir desde -Default: ONLINE
-    return cy.get('#sp-uno-transfer-title-from');
+    return cy.get('#sp-uno-transfer-title-from', { timeout: 20000 });
   }
   titleTo() {
-    //Transferir hacia -Default: TIENDAS
     return cy.get('#sp-uno-transfer-title-to');
   }
   balanceFrom() {
@@ -50,6 +48,20 @@ export class SportiumUnoPage {
     //Importe actual (debajo de la bolita), valor identico a inputAmmount
     return cy.get('output');
   }
+  btnTransferAccept(){
+    return cy.get('#button-transfer-accept');
+  }
+  btnTransferCancel(){
+    return cy.get('.button-transfer-later');
+  }
+  warningTransferAccept(){
+    return cy.get('#sp-uno-transfer-warning-questions'); //¿Estás seguro de querer hacer esta opecación?
+  }
+  msgTransfer(){
+    return cy.get('#sp-uno-transfer-info-text'); //Transferencia realizada correctamente
+  }
+
+
 
   btnCompruebaAhora() {
     return cy.get('.check-bet-button > button', { timeout: 20000 });
