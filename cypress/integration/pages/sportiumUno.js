@@ -53,7 +53,7 @@ export class SportiumUnoPage {
     return cy.get('.button-transfer-later');
   }
   warningTransferAccept(){
-    return cy.get('#sp-uno-transfer-warning-questions'); //¿Estás seguro de querer hacer esta opecación?
+    return cy.get('#sp-uno-transfer-warning-questions'); //¿Estás seguro de querer hacer esta operación?
   }
   msgTransfer(){
     return cy.get('#sp-uno-transfer-info-text'); //Transferencia realizada correctamente
