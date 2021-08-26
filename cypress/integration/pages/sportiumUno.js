@@ -29,9 +29,7 @@ export class SportiumUnoPage {
     //Transferir button
     return cy.get('#button-transfer');
   }
-  btnDepositar(){
-    return true;
-  }
+
   sliderBall() {
     //Bolita del slider
     return cy.get('.rangeslider__handle');

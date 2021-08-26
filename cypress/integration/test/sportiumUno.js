@@ -8,7 +8,6 @@ const Utilities = new UtilitiesPage();
 const Uno = new SportiumUnoPage();
 const UnoController = new SportiumUnoController();
 
-
 describe("Sportium UNO", function () {
   //before(function () {});
 /*
@@ -56,6 +55,7 @@ describe("Sportium UNO", function () {
     });
   });
 */
+
   context("Transfers - Online to Shops", function () {
     Utilities.ignoreSiteErrors();
 
@@ -92,7 +92,7 @@ describe("Sportium UNO", function () {
     after(function(){
       Header.getDepositar().click();
       Header.btnCancelarSolitud().click()
-      //Header.logOut();
+      Header.logOut();
     });
   });
 
@@ -103,7 +103,7 @@ describe("Sportium UNO", function () {
       Uno.goToSportiumUno();
       Header.logIn("Maxi333", "Test.333");
     });
-    
+
     beforeEach(function () {
       Utilities.ignoreSiteErrors();
     });
